@@ -17,3 +17,47 @@ func vowelsAndConsonants (str: String) -> (Int, Int) {
 }
 
 vowelsAndConsonants(str: "jamesisCOolerthanJenny2364781;(&$%#@")
+
+func overTheRoad(address: Int, n: Int) -> Int {
+    var evenArr: [Int] = []
+    var oddsArr: [Int] = []
+    
+    
+    for el in 1...(n*2) {
+        if el % 2 == 0 {
+            evenArr.append(el)
+        } else {
+            oddsArr.append(el)
+        }
+    }
+    oddsArr.reverse()
+    
+    
+    var index = 0
+    var counter = 0
+    
+    
+//    for i in evenArr {
+//        counter += 1
+//        if i == address || i == address + 1 {
+//            print(i)
+//            index = counter
+//        }
+//    }
+    print(evenArr)
+    print(oddsArr)
+    print(address, "hit")
+    
+    print(index)
+    
+    if address % 2 == 0 {
+        guard let index = oddsArr.firstIndex(of: 1) else {return 0}
+        return oddsArr[index]
+    } else {
+        guard let index = evenArr.firstIndex(of: 1) else {return 0}
+        return evenArr[index]
+    }
+}
+
+overTheRoad(address: 1, n: 3)
+//overTheRoad(address: 3, n: 3)
