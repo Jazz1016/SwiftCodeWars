@@ -37,13 +37,13 @@ func overTheRoad(address: Int, n: Int) -> Int {
     var counter = 0
     
     
-//    for i in evenArr {
-//        counter += 1
-//        if i == address || i == address + 1 {
-//            print(i)
-//            index = counter
-//        }
-//    }
+    //    for i in evenArr {
+    //        counter += 1
+    //        if i == address || i == address + 1 {
+    //            print(i)
+    //            index = counter
+    //        }
+    //    }
     print(evenArr)
     print(oddsArr)
     print(address, "hit")
@@ -79,3 +79,106 @@ func removeDuplicatesOrderMatters(string: String) -> String {
 }
 
 //removeDuplicates(str: "jjjjjaabtaw&^%##332")
+
+func naiveHash(_ string: String) -> Int {
+    let unicodeScalars = string.unicodeScalars.map { Int($0.value) }
+    
+    return unicodeScalars.reduce(0, +)
+}
+
+func values(fromCSVString str: String) -> [String] {
+    let separators = CharacterSet(charactersIn: ",;")
+    return str.components(separatedBy: separators)
+}
+
+
+//func allPossiblePermutations(str: String) -> [String]{
+//    var strArr = values(fromCSVString: str)
+//    var finalArr = [String].self
+//
+//    for (el, i) in strArr.enumerated() {
+//        for j in 1...strArr.count - 1 {
+//
+//
+//
+//        }
+//    }
+//
+//    return [""]
+//}
+
+
+//Write a function that prints all possible permutations of a given input string.
+
+//Example in out:
+//In: “abc”
+//Out: “abc”, “acb”, “bac”, “bca”, “cab”, “cba”
+var strArr: [String] = []
+
+func permutations(left:Int, right:Int, stringyBoi:String){
+    if(left==right){
+        if !strArr.contains(stringyBoi) {
+            strArr.append(stringyBoi)
+        }
+        print(stringyBoi)
+        return
+    }
+    
+    
+    print(stringyBoi)
+    var newStringyBoi = stringyBoi
+    for i in Range(left...right){
+        newStringyBoi = swapCharacters(newStringyBoi, index1: left, index2: i)
+        permutations(left: left+1, right: right, stringyBoi: newStringyBoi)
+        newStringyBoi = swapCharacters(newStringyBoi, index1: left, index2: i)
+    }
+}
+func swapCharacters(_ strink: String, index1:Int, index2: Int) ->String{
+    var characters:[Character] = []
+    for i in strink{
+        characters.append(i)
+    }
+    let charindex1 = characters[index1]
+    let charindex2 = characters[index2]
+    characters[index2] = charindex1
+    characters[index1] = charindex2
+    var returnBoi = ""
+    for i in characters{
+        returnBoi += String(i)
+    }
+    return returnBoi
+}
+func giveAllPermutations(_ t: String){
+    permutations(left: 0, right: t.count-1, stringyBoi: t)
+}
+
+//giveAllPermutations("uwqa")
+//print(strArr)
+
+extension String {
+    func findPermutations() -> [String] {
+        
+        var set = Set<[String]>()
+        let characters = self.map({ String($0) })
+        characters.permute(characters, toArray: [], set: &set)
+        
+        return set.compactMap({ $0.joined(separator: "") })
+    }
+}
+
+extension Array {
+    func permute<T>(_ fromArray: [T], toArray: [T], set: inout Set<[T]>) {
+        if toArray.count >= self.count {
+            set.insert(toArray)
+        }
+        if !fromArray.isEmpty {
+            for (index, item) in fromArray.enumerated() {
+                var newFrom = fromArray
+                newFrom.remove(at: index)
+                permute(newFrom, toArray: toArray + [item], set: &set)
+            }
+        }
+    }
+}
+
+print("ABC".findPermutations())
