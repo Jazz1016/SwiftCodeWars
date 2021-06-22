@@ -16,7 +16,7 @@ func vowelsAndConsonants (str: String) -> (Int, Int) {
     return (vowels,consonants)
 }
 
-vowelsAndConsonants(str: "jamesisCOolerthanJenny2364781;(&$%#@")
+//vowelsAndConsonants(str: "jamesisCOolerthanJenny2364781;(&$%#@")
 
 func overTheRoad(address: Int, n: Int) -> Int {
     var evenArr: [Int] = []
@@ -59,5 +59,23 @@ func overTheRoad(address: Int, n: Int) -> Int {
     }
 }
 
-overTheRoad(address: 1, n: 3)
+//overTheRoad(address: 1, n: 3)
 //overTheRoad(address: 3, n: 3)
+
+func removeDuplicates(str: String) -> String {
+    var strHolder = ""
+    str.forEach { char in
+        if strHolder.contains(char){
+            
+        } else {
+            strHolder.append(char)
+        }
+    }
+    return strHolder
+}
+
+func removeDuplicatesOrderMatters(string: String) -> String {
+    return NSOrderedSet(array: Array(string)).reduce("") { $0 + "\($1)"}
+}
+
+//removeDuplicates(str: "jjjjjaabtaw&^%##332")
