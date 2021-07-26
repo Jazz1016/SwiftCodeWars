@@ -190,3 +190,37 @@ print("ABC".findPermutations())
 func multi_table(_ number: Int) -> String {
     return "1 * \(number) = \(number * 1)\n2 * \(number) = \(number * 2)\n3 * \(number) = \(number * 3)\n4 * \(number) = \(number * 4)\n5 * \(number) = \(number * 5)\n6 * \(number) = \(number * 6)\n7 * \(number) = \(number * 7)\n8 * \(number) = \(number * 8)\n9 * \(number) = \(number * 9)\n10 * \(number) = \(number * 10)"
 }
+
+
+//Your task in this kata is to implement a function that calculates the sum of the integers inside a string. For example, in the string "The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog", the sum of the integers is 3635.
+
+let stringtest = "The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog"
+
+func sumOfIntegersInString(_ string: String) -> Int {
+    var numStr: String = ""
+    var numToReturn = 0
+    
+    for char in string {
+        if char.isNumber {
+            numStr.append(char)
+        } else {
+            if numStr.count > 0 {
+                numToReturn += Int(numStr)!
+                numStr = ""
+            }
+            numStr = ""
+        }
+    }
+    
+    if numStr.count > 0 {
+        numToReturn += Int(numStr)!
+        numStr = ""
+    }
+    
+    return numToReturn
+}
+
+sumOfIntegersInString(stringtest)
+sumOfIntegersInString("h3ll0w0rld")
+sumOfIntegersInString("12.4")
+
