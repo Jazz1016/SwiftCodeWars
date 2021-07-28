@@ -181,7 +181,7 @@ extension Array {
     }
 }
 
-print("ABC".findPermutations())
+//print("ABC".findPermutations())
 
 //Your goal is to return multiplication table for number that is always an integer from 1 to 10.
 //
@@ -260,14 +260,10 @@ import Foundation
 func maskify(_ string:String) -> String {
     var finalStr = ""
     for (i, el) in string.enumerated() {
-        if i >= string.count - 4 {
-            finalStr.append(el)
-        } else {
-            finalStr.append("#")
-        }
+        i >= string.count - 4 ? finalStr.append(el) : finalStr.append("#")
     }
     return finalStr
 }
 
-maskify("4556364607935616")
+//maskify("4556364607935616")
 
