@@ -237,16 +237,37 @@ var mixedArr = [3,2,4,6,7,8,1,9]
 
 func findDeletedNumber(array: [Int], mixArray: [Int]) -> Int {
     let mixed = mixArray.sorted()
-    var num: Int = 0
-    for (i, el) in mixed.enumerated() {
+    
+    for (i, _) in mixed.enumerated() {
 //        print(arry[i], el)
-        if array[i] == el {
+        if array[i] == mixed[i] {
             
         } else {
             return array[i]
         }
     }
-    return num
+    return 0
 }
 
-findDeletedNumber(array: arr, mixArray: mixedArr)
+//findDeletedNumber(array: arr, mixArray: mixedArr)
+
+//sually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
+//
+//Your task is to write a function maskify, which changes all but the last four characters into '#'.
+
+import Foundation
+
+func maskify(_ string:String) -> String {
+    var finalStr = ""
+    for (i, el) in string.enumerated() {
+        if i >= string.count - 4 {
+            finalStr.append(el)
+        } else {
+            finalStr.append("#")
+        }
+    }
+    return finalStr
+}
+
+maskify("4556364607935616")
+
