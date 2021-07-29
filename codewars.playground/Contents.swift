@@ -267,3 +267,31 @@ func maskify(_ string:String) -> String {
 
 //maskify("4556364607935616")
 
+//This time no story, no theory. The examples below show you how to write function accum:
+//
+//Examples:
+//accum("abcd") -> "A-Bb-Ccc-Dddd"
+//accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+//accum("cwAt") -> "C-Ww-Aaa-Tttt"
+//The parameter of accum is a string which includes only letters from a..z and A..Z.
+
+func accum(_ s: String) -> String {
+    var str = ""
+    
+    for (i, el) in s.enumerated() {
+        for j in 0...i + 1 {
+            if j == 0 {
+                str.append(el.uppercased())
+            } else if j == i + 1 {
+                str.append("-")
+            } else {
+                str.append(el.lowercased())
+            }
+        }
+    }
+    str.popLast()
+    return str
+}
+
+accum("abcd")
+accum("RqaEzty")
