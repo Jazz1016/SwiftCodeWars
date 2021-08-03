@@ -343,11 +343,33 @@ import UIKit
 //find_short("bitcoin take over the world maybe who knows perhaps")
 //find_short("lets talk about javascript the best language")
 //find_short("i want to travel the world writing code one day")
-
-func digitalRoot(of number: Int) -> Int {
-    let n = "\(number)".compactMap{ $0.wholeNumberValue }.reduce(0, +)
-    
-    return n > 9 ? digitalRoot(of: n) : n
-}
+//
+//func digitalRoot(of number: Int) -> Int {
+//    let n = "\(number)".compactMap{ $0.wholeNumberValue }.reduce(0, +)
+//
+//    return n > 9 ? digitalRoot(of: n) : n
+//}
 
 //digitalRoot(of: 762)
+
+//Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
+//
+//For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
+//
+//[10, 343445353, 3453445, 3453545353453] should return 3453455.
+
+//func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
+//    let sortedArr = array.sorted()
+//
+//    return sortedArr[0] + sortedArr[1]
+//}
+
+func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
+    let sortedArr = array.sorted()
+    
+    return sortedArr[0] + sortedArr[1]
+}
+
+//sumOfTwoSmallestIntegersIn([5, 8, 12, 18, 22])
+
+
