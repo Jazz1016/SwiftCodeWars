@@ -369,7 +369,55 @@ func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
     
     return sortedArr[0] + sortedArr[1]
 }
-
 //sumOfTwoSmallestIntegersIn([5, 8, 12, 18, 22])
 
+//Each day a plant is growing by upSpeed meters. Each night that plant's height decreases by downSpeed meters due to the lack of sun heat. Initially, plant is 0 meters tall. We plant the seed at the beginning of a day. We want to know when the height of the plant will reach a certain level.
+//
+//Example
+//For upSpeed = 100, downSpeed = 10 and desiredHeight = 910, the output should be 10.
 
+//func growingPlant(_ upSpeed: Int, _ downSpeed: Int, _ desiredHeight: Int) -> Int {
+//    var days = 1
+//    var currentHeight = 0
+//    func checkPlantGrowth(){
+//        if currentHeight < desiredHeight {
+//            currentHeight += upSpeed
+//            if currentHeight < desiredHeight {
+//                currentHeight -= downSpeed
+//                days += 1
+//                checkPlantGrowth()
+//            } else {
+//                return
+//            }
+//        } else {
+//            return
+//        }
+//    }
+//    checkPlantGrowth()
+//
+//    return days
+//}
+
+//func growingPlant(_ upSpeed: Int, _ downSpeed: Int, _ desiredHeight: Int) -> Int {
+//    var days = 1
+//    var currentHeight = 0
+//
+//    while currentHeight <= desiredHeight {
+//        currentHeight = currentHeight + upSpeed
+//        if currentHeight < desiredHeight {
+//            days += 1
+//            currentHeight - downSpeed + upSpeed
+//        } else {
+//
+//        }
+//    }
+//    return days
+//}
+//
+//
+//
+//growingPlant(100, 10, 910) //10
+//growingPlant(10, 9, 4) //1
+//growingPlant(5, 2, 5) // 1
+//growingPlant(5, 2, 6) // 2
+//growingPlant(67, 21, 818) // 18
