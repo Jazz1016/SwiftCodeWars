@@ -421,3 +421,89 @@ func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
 //growingPlant(5, 2, 5) // 1
 //growingPlant(5, 2, 6) // 2
 //growingPlant(67, 21, 818) // 18
+
+
+//Definition
+//Balanced number is the number that * The sum of all digits to the left of the middle digit(s) and the sum of all digits to the right of the middle digit(s) are equal*.
+//
+//Task
+//Given a number, Find if it is Balanced or not .
+//
+//Warm-up (Highly recommended)
+//Playing With Numbers Series
+//Notes
+//If the number has an odd number of digits then there is only one middle digit, e.g. 92645 has middle digit 6; otherwise, there are two middle digits , e.g. 1301 has middle digits 3 and 0
+//
+//The middle digit(s) should not be considered when determining whether a number is balanced or not, e.g 413023 is a balanced number because the left sum and right sum are both 5.
+//
+//Number passed is always Positive .
+//
+//Return the result as String
+//
+//Input >> Output Examples
+//(balanced-num 7) ==> return "Balanced"
+//Explanation:
+//Since , The sum of all digits to the left of the middle digit (0)
+//
+//and the sum of all digits to the right of the middle digit (0) are equal , then It's Balanced
+//
+//(balanced-num 295591) ==> return "Not Balanced"
+//Explanation:
+//Since , The sum of all digits to the left of the middle digits (11)
+//
+//and the sum of all digits to the right of the middle digits (10) are Not equal , then It's Not Balanced
+//
+//Note : The middle digit(s) are 55 .
+
+//func balancedNumber(_ number: Int) -> String {
+//    var numStr = "\(number)"
+//    var leftSide = 0
+//    var rightSide = 0
+//
+//    if numStr.count % 2 == 0 {
+//
+//
+//    } else {
+//
+//
+//
+//    }
+//
+//    return ""
+//}
+
+//Don't give me five!
+//In this kata you get the start number and the end number of a region and should return the count of all numbers except numbers with a 5 in it. The start and the end number are both inclusive!
+//
+//Examples:
+//
+//1,9 -> 1,2,3,4,6,7,8,9 -> Result 8
+//4,17 -> 4,6,7,8,9,10,11,12,13,14,16,17 -> Result 12
+//The result may contain fives. ;-)
+//The start number will always be smaller than the end number. Both numbers can be also negative!
+//
+//I'm very curious for your solutions and the way you solve it. Maybe someone of you will find an easy pure mathematics solution.
+//
+//Have fun coding it and please don't forget to vote and rank this kata! :-)
+//
+//I have also created other katas. Take a look if you enjoyed this kata!
+
+func dontGiveMeFive(_ start: Int, _ end: Int) -> Int {
+    var counter = 0
+    for i in start...end {
+        print(i)
+        if "\(i)".contains("5") {
+
+        } else {
+            counter += 1
+        }
+    }
+
+    return counter
+}
+//
+//dontGiveMeFive(4,17)
+//dontGiveMeFive(1,9)
+//dontGiveMeFive(1,4)
+//dontGiveMeFive(3, 10)
+
