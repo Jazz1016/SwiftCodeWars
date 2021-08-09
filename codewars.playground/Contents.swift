@@ -491,7 +491,6 @@ func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
 func dontGiveMeFive(_ start: Int, _ end: Int) -> Int {
     var counter = 0
     for i in start...end {
-        print(i)
         if "\(i)".contains("5") {
 
         } else {
@@ -501,9 +500,35 @@ func dontGiveMeFive(_ start: Int, _ end: Int) -> Int {
 
     return counter
 }
-//
+
 //dontGiveMeFive(4,17)
 //dontGiveMeFive(1,9)
 //dontGiveMeFive(1,4)
 //dontGiveMeFive(3, 10)
+
+//Your task is to write function findSum.
+//
+//Upto and including n, this function will return the sum of all multiples of 3 and 5.
+//
+//For example:
+//
+//findSum(5) should return 8 (3 + 5)
+//
+//findSum(10) should return 33 (3 + 5 + 6 + 9 + 10)
+
+func findSum(_ n: Int) -> Int {
+    var num = 0
+    
+    for i in 0...n {
+        if i % 3 == 0 {
+            num += i
+        } else if i % 5 == 0 {
+            num += i
+        }
+    }
+    
+    return num
+}
+
+findSum(5)
 
