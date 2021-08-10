@@ -520,9 +520,7 @@ func findSum(_ n: Int) -> Int {
     var num = 0
     
     for i in 0...n {
-        if i % 3 == 0 {
-            num += i
-        } else if i % 5 == 0 {
+        if i % 3 == 0 || i % 5 == 0 {
             num += i
         }
     }
@@ -530,5 +528,27 @@ func findSum(_ n: Int) -> Int {
     return num
 }
 
-findSum(5)
+//findSum(5)
+//
+//Write function replaceAll (Python: replace_all) that will replace all occurrences of an item with another.
+//
+//Python / JavaScript: The function has to work for strings and lists.
+//
+//Example: replaceAll [1,2,2] 1 2 -> in list [1,2,2] we replace 1 with 2 to get new list [2,2,2]
+//
+//replaceAll(replaceAll(array: [1,2,2], old: 1, new: 2) // [2,2,2]
 
+func replaceAll<T: Equatable>(array: [T], old: T, new: T) -> [T] {
+    
+    let newArr = array.map { el -> T in
+        if el == old {
+            return new
+        } else {
+            return el
+        }
+    }
+    
+    return newArr
+}
+
+replaceAll(array: ["ooh", "la", "la"], old: "la", new: "baby")
