@@ -551,4 +551,10 @@ func replaceAll<T: Equatable>(array: [T], old: T, new: T) -> [T] {
     return newArr
 }
 
-replaceAll(array: ["ooh", "la", "la"], old: "la", new: "baby")
+//replaceAll(array: ["ooh", "la", "la"], old: "la", new: "baby")
+
+func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+    
+    
+    return []
+}
