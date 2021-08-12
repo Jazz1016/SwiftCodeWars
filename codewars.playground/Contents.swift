@@ -558,3 +558,36 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
     
     return []
 }
+
+//Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+//
+//Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+
+func reverse(_ x: Int) -> Int {
+    var num = x
+    var numBool = true
+    if x < 0 {
+        num = num * -1
+        numBool.toggle()
+    }
+    var finalNum: String = ""
+    
+    for i in 0..<"\(num)".count {
+        var digit = num % 10
+        finalNum.append("\(digit)")
+        num = num/10
+    }
+    
+    if Int(finalNum) ?? 0 > Int32.max {
+        return 0
+    }
+    
+    if numBool {
+        return Int(finalNum) ?? 0
+    } else {
+        finalNum = "-\(finalNum)"
+        return Int(finalNum) ?? 0
+    }
+}
+
+reverse(1534236469)
