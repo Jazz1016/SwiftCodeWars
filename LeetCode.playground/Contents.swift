@@ -30,6 +30,27 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
     }
     return []
 }
+//
+//twoSum([1, 3, 5, 4], 4)
+//twoSum([2, 11, 15, 6, 7], 9)
 
-twoSum([1, 3, 5, 4], 4)
-twoSum([2, 11, 15, 6, 7], 9)
+
+    func isPalindrome(_ x: Int) -> Bool {
+        if x < 0 {
+            return false
+        }
+        var num = x
+        var initialStr = "\(x)"
+        var finalNum: String = ""
+        for _ in 0..<"\(num)".count {
+            let digit = num % 10
+            finalNum.append("\(digit)")
+            num = num/10
+        }
+        if finalNum == initialStr {
+            return true
+        } else {
+            return false
+        }
+    }
+
