@@ -589,5 +589,23 @@ func reverse(_ x: Int) -> Int {
         return Int(finalNum) ?? 0
     }
 }
+//
+//reverse(1534236469)
 
-reverse(1534236469)
+//reate a function oddOne that takes an [Int] as input and outputs the index at which the sole odd number is located.
+//
+//This method should work with arrays with negative numbers. If there are no odd numbers in the array, then the method should output nil.
+
+func oddOne(_ arr: [Int]) -> Int? {
+    for (i, el) in arr.enumerated() {
+        if el % 2 != 0 {
+        return i
+        }
+    }
+    return nil
+}
+//
+//oddOne([2,4,6,7,10])
+//oddOne([2,16,98,10,13,78])
+//
+
