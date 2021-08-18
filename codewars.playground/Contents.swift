@@ -609,3 +609,8 @@ func oddOne(_ arr: [Int]) -> Int? {
 //oddOne([2,16,98,10,13,78])
 //
 
+func booleanToString(_ b: Bool) -> String {
+    return "\(b)"
+}
+
+booleanToString(true)
