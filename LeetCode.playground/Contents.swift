@@ -20,16 +20,16 @@ import UIKit
 //}
 
 ///Binary Search
-func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-    var map: [Int : Int] = [:]
-    for i in 0..<nums.count {
-        if let mapped = map[target - nums[i]]{
-            return [mapped, i]
-        }
-        map[nums[i]] = i
-    }
-    return []
-}
+//func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+//    var map: [Int : Int] = [:]
+//    for i in 0..<nums.count {
+//        if let mapped = map[target - nums[i]]{
+//            return [mapped, i]
+//        }
+//        map[nums[i]] = i
+//    }
+//    return []
+//}
 //
 //twoSum([1, 3, 5, 4], 4)
 //twoSum([2, 11, 15, 6, 7], 9)
@@ -53,3 +53,35 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
             return false
         }
     }
+
+//Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+//
+//You may assume that each input would have exactly one solution, and you may not use the same element twice.
+//
+//You can return the answer in any order.
+
+func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+    var lowIndex = 0
+    var highIndex = nums.count - 1
+    
+    while lowIndex < highIndex {
+         
+        let sumOfItems = nums[lowIndex] + nums[highIndex]
+        
+        if sumOfItems == target {
+//            print("Sum of \(nums[lowIndex]) and \(nums[highIndex]) = \(target)")
+            print(lowIndex, highIndex)
+            return [lowIndex, highIndex]
+        } else if sumOfItems < target {
+            lowIndex += 1
+        } else if sumOfItems > target {
+            highIndex -= 1
+        }
+        
+    }
+    return [0,0]
+}
+
+//twoSum([1,3,6,7,7,12,14], 13)
+//twoSum([3,2,4], 6)
+//twoSum([-1,-2,-3,-4,-5], -8)
