@@ -85,3 +85,20 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
 //twoSum([1,3,6,7,7,12,14], 13)
 //twoSum([3,2,4], 6)
 //twoSum([-1,-2,-3,-4,-5], -8)
+
+//You are climbing a staircase. It takes n steps to reach the top.
+//
+//Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+func climbStairs(_ n: Int) -> Int {
+    var arr: [Int] = []
+    
+    for i in n...2 {
+        
+    }
+    
+    return 0
+}
+
+climbStairs(0) //1
+climbStairs(1) //1

@@ -614,3 +614,20 @@ func booleanToString(_ b: Bool) -> String {
 }
 
 booleanToString(true)
+
+//Modify the spacify function so that it returns the given string with spaces inserted between each character.
+//
+//spacify("hello world") // "h e l l o   w o r l d"
+
+func spacify(_ str: String) -> String {
+    var finalStr = ""
+    for (_, el) in str.enumerated() {
+        finalStr.append(String(el) + " ")
+    }
+    if finalStr.count > 0 {
+        finalStr.removeLast()
+    }
+    return finalStr
+}
+
+spacify("hello world")
