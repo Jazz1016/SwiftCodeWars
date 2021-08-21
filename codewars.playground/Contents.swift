@@ -636,13 +636,18 @@ spacify("hello world")
 //
 //Note for Java: the return type and methods have not been provided to make it a bit more challenging.
 
+//func add(_ n: Int) -> ((Int) -> Int) {
+//    func addOne(num: Int) -> Int {
+//
+//        return num + 1
+//    }
+//
+//    return addOne(num: )
+//}
+
 func add(_ n: Int) -> ((Int) -> Int) {
-    func addOne(num: Int) -> Int {
-        
-        return num + 1
-    }
-    
-    return addOne(num: )
+    func a(_ b: Int) -> Int { return n + b }
+    return a(_:)
 }
 
-add(1)
+add(5)(10)
