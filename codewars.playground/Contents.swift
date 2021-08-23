@@ -663,5 +663,45 @@ func boolToWord(_ bool: Bool) -> String {
     }
 }
 
-boolToWord(true)
-boolToWord(false)
+//boolToWord(true)
+//boolToWord(false)
+
+//Given the triangle of consecutive odd numbers:
+
+//func rowSumOddNumbers(_ row: Int) -> Int {
+//    var oddNums: [Int] = []
+//    var currentNum = 1
+//    for i in 0...row {
+//        for j in 0...i {
+//            print(j)
+//            if j % 2 != 0 {
+//                oddNums.append(currentNum)
+//                currentNum += 2
+//            }
+//        }
+//    }
+//    print(oddNums)
+//
+//    return 0
+//}
+
+func rowSumOddNumbers(_ row: Int) -> Int {
+    var currentNumber = 1
+    var sum = 0
+    for r in 1...row {
+//        print(row, r)
+        for _ in 1...r {
+            if r == row {
+                sum += currentNumber
+            }
+//            print(currentNumber)
+            currentNumber += 2
+        }
+    }
+    return sum
+}
+
+//rowSumOddNumbers(2)
+rowSumOddNumbers(3)
+//rowSumOddNumbers(4)
+
