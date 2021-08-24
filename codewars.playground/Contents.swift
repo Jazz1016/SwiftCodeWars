@@ -706,10 +706,20 @@ func rowSumOddNumbers(_ row: Int) -> Int {
 //rowSumOddNumbers(4)
 
 func getAverage(_ marks: [Int]) -> Int {
-    
     return marks.reduce(0, +)/marks.count
 }
 
 getAverage([2,2,2,2])
 getAverage([1,2,3,4,5,])
 getAverage([1,1,1,1,1,1,1,2])
+
+//Determine the total number of digits in the integer (n>=0) given as input to the function. For example, 9 is a single digit, 66 has 2 digits and 128685 has 6 digits. Be careful to avoid overflows/underflows.
+//
+//All inputs will be valid.
+
+func digits(num n: UInt64) -> Int {
+    return "\(n)".count
+}
+
+digits(num: 12345)
+digits(num: 9876543210)
