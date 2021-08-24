@@ -702,6 +702,14 @@ func rowSumOddNumbers(_ row: Int) -> Int {
 }
 
 //rowSumOddNumbers(2)
-rowSumOddNumbers(3)
+//rowSumOddNumbers(3)
 //rowSumOddNumbers(4)
 
+func getAverage(_ marks: [Int]) -> Int {
+    
+    return marks.reduce(0, +)/marks.count
+}
+
+getAverage([2,2,2,2])
+getAverage([1,2,3,4,5,])
+getAverage([1,1,1,1,1,1,1,2])
