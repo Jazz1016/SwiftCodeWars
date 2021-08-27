@@ -771,7 +771,41 @@ func wordSearch(_ str:String, _ arr:[String]) -> [String] {
     }
 }
 
-wordSearch("ab", ["za", "ab", "abc", "zab", "zbc"])
-wordSearch("aB", ["za", "ab", "abc", "zab", "zbc"])
-wordSearch("ab", ["za", "aB", "Abc", "zAB", "zbc"])
-wordSearch("me", ["home", "milk", "Mercury", "fish"])
+//wordSearch("ab", ["za", "ab", "abc", "zab", "zbc"])
+//wordSearch("aB", ["za", "ab", "abc", "zab", "zbc"])
+//wordSearch("ab", ["za", "aB", "Abc", "zAB", "zbc"])
+//wordSearch("me", ["home", "milk", "Mercury", "fish"])
+
+//Your task is to add up letters to one letter.
+//
+//The function will be given an Array<Character>, each one being a letter to add, and the function will return a Character.
+//
+//Notes:
+//Letters will always be lowercase.
+//Letters can overflow (see second to last example of the description)
+//If no letters are given, the function should return 'z'
+
+func addLetters(_ letters: [Character]) -> Character {
+    if letters.count == 0 {
+        return Character("z")
+    }
+    let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    var num: Int = 0
+    for i in letters {
+        print(i)
+        num += alphabet.firstIndex(of: String(i)) ?? 0
+        num += 1
+    }
+    if num % 26 != 0 && num > 26 {
+        let numDivisor: Int = num/26
+        num -= numDivisor * 26
+    }
+    return Character(alphabet[num - 1])
+}
+
+//addLetters(["a", "b", "c"])
+//addLetters(["z"])
+//addLetters(["a", "b"])
+//addLetters(["y", "c", "b"])
+addLetters(["z", "b", "g", "x"])
+addLetters([])
