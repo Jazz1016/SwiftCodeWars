@@ -792,7 +792,6 @@ func addLetters(_ letters: [Character]) -> Character {
     let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     var num: Int = 0
     for i in letters {
-        print(i)
         num += alphabet.firstIndex(of: String(i)) ?? 0
         num += 1
     }
@@ -807,5 +806,50 @@ func addLetters(_ letters: [Character]) -> Character {
 //addLetters(["z"])
 //addLetters(["a", "b"])
 //addLetters(["y", "c", "b"])
-addLetters(["z", "b", "g", "x"])
-addLetters([])
+//addLetters(["z", "b", "g", "x"])
+//addLetters([])
+
+//Write a function that takes two strings, A and B, and returns the length of the longest possible substring that can be formed from the concatenation of either A + B or B + A containing only characters that do not appear in both A and B.
+
+func longestSubstring(_ a: String, _ b: String) -> Int {
+    var finalStr = ""
+    var str = ""
+    var noDuplicates = ""
+    let first = a + b
+    let second = b + a
+    
+    for i in b {
+        if !a.contains(i) {
+            noDuplicates.append(i)
+        }
+    }
+    for i in a {
+        if !b.contains(i) {
+            noDuplicates.append(i)
+        }
+    }
+    for (_, el) in first.enumerated() {
+        if noDuplicates.contains(el) {
+            str.append(el)
+            if str.count > finalStr.count {
+                finalStr = str
+            }
+        } else {
+            str = ""
+        }
+    }
+    for (_, el) in second.enumerated() {
+        if noDuplicates.contains(el) {
+            str.append(el)
+            if str.count > finalStr.count {
+                finalStr = str
+            }
+        } else {
+            str = ""
+        }
+    }
+    return finalStr.count
+}
+
+longestSubstring("piquancy", "refocusing")
+longestSubstring("aerospace", "ominous")
