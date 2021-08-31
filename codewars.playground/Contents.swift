@@ -851,5 +851,20 @@ func longestSubstring(_ a: String, _ b: String) -> Int {
     return finalStr.count
 }
 
-longestSubstring("piquancy", "refocusing")
-longestSubstring("aerospace", "ominous")
+//longestSubstring("piquancy", "refocusing")
+//longestSubstring("aerospace", "ominous")
+
+//Jaden Smith, the son of Will Smith, is the star of films such as The Karate Kid (2010) and After Earth (2013). Jaden is also known for some of his philosophy that he delivers via Twitter. When writing on Twitter, he is known for almost always capitalizing every word. For simplicity, you'll have to capitalize each word, check out how contractions are expected to be in the example below.
+//
+//Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
+
+extension String {
+    func toJadenCase() -> String {
+        var strArr = self.split(separator: Character(" "))
+        for i in 0..<strArr.count {
+            strArr[i] = strArr[i].prefix(1).capitalized + strArr[i].dropFirst(1)
+        }
+        return strArr.joined(separator: " ")
+    }
+}
+"How can mirrors be real if our eyes aren't real".toJadenCase()
