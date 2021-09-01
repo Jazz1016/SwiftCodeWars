@@ -867,4 +867,27 @@ extension String {
         return strArr.joined(separator: " ")
     }
 }
-"How can mirrors be real if our eyes aren't real".toJadenCase()
+
+//We will call a natural number a "doubleton number" if it contains exactly two distinct digits. For example, 23, 35, 100, 12121 are doubleton numbers, and 123 and 9980 are not.
+//
+//For a given natural number n (from 1 to 1 000 000), you need to find the next doubleton number. If n itself is a doubleton, return the next bigger than n.
+
+func doubleton(_ num: Int) -> Int {
+    var numStr = ""
+    for i in num + 1...1000000 {
+        numStr = ""
+        for j in "\(i)" {
+            if !numStr.contains(j) {
+                numStr.append(j)
+            }
+        }
+        if numStr.count == 2 {
+            return i
+        }
+    }
+    return 0
+}
+
+//doubleton(120)
+//doubleton(1234)
+//doubleton(10)
