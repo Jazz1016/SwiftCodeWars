@@ -891,3 +891,125 @@ func doubleton(_ num: Int) -> Int {
 //doubleton(120)
 //doubleton(1234)
 //doubleton(10)
+
+//ask
+//You'll have to translate a string to Pilot's alphabet (NATO phonetic alphabet).
+//
+//Input:
+//
+//If, you can read?
+//
+//Output:
+//
+//India Foxtrot , Yankee Oscar Uniform Charlie Alfa November Romeo Echo Alfa Delta ?
+//
+//Note:
+//
+//There are preloaded dictionary you can use, named NATO
+//The set of used punctuation is ,.!?.
+//Punctuation should be kept in your return string, but spaces should not.
+//Xray should not have a dash within.
+//Every word and punctuation mark should be seperated by a space ' '.
+//There should be no trailing whitespace
+
+func toNato(_ words: String) -> String {
+    var str = ""
+    for i in words {
+        switch i.lowercased() {
+        case "a":
+            str.append("Alfa ")
+        case "b":
+            str.append("Bravo ")
+        case "c":
+            str.append("Charlie ")
+        case "d":
+            str.append("Delta ")
+        case "e":
+            str.append("Echo ")
+        case "f":
+            str.append("Foxtrot ")
+        case "g":
+            str.append("Golf ")
+        case "h":
+            str.append("Hotel ")
+        case "i":
+            str.append("India ")
+        case "j":
+            str.append("Juliett ")
+        case "k":
+            str.append("Kilo ")
+        case "l":
+            str.append("Lima ")
+        case "m":
+            str.append("Mike ")
+        case "n":
+            str.append("November ")
+        case "o":
+            str.append("Oscar ")
+        case "p":
+            str.append("Papa ")
+        case "q":
+            str.append("Quebec ")
+        case "r":
+            str.append("Romeo ")
+        case "s":
+            str.append("Sierra ")
+        case "t":
+            str.append("Tango ")
+        case "u":
+            str.append("Uniform ")
+        case "v":
+            str.append("Victor ")
+        case "w":
+            str.append("Whiskey ")
+        case "x":
+            str.append("Xray ")
+        case "y":
+            str.append("Yankee ")
+        case "z":
+            str.append("Zulu ")
+        case "1":
+            str.append("One ")
+        case "2":
+            str.append("Two ")
+        case "3":
+            str.append("Three ")
+        case "4":
+            str.append("Four ")
+        case "5":
+            str.append("Five ")
+        case "6":
+            str.append("Six ")
+        case "7":
+            str.append("Seven ")
+        case "8":
+            str.append("Eight ")
+        case "9":
+            str.append("Nine ")
+        case "0":
+            str.append("Zero ")
+        case ",":
+            str.append(", ")
+        case ".":
+            str.append(". ")
+        case "!":
+            str.append("! ")
+        case "?":
+            str.append("? ")
+        case "(":
+            str.append("( ")
+        case ")":
+            str.append(") ")
+        case "\"":
+            str.append("\" ")
+        default:
+            break
+        }
+    }
+    str.removeLast()
+    
+    return str
+}
+
+toNato("If you can read")
+toNato("Did not see that coming")
