@@ -1011,5 +1011,16 @@ func toNato(_ words: String) -> String {
     return str
 }
 
-toNato("If you can read")
-toNato("Did not see that coming")
+//toNato("If you can read")
+//toNato("Did not see that coming")
+
+func inviteMoreWomen(_ arr: [Int]) -> Bool {
+    let num = arr.reduce(0, { $0 + $1 })
+    
+    
+    
+    return num > 0 ? true : false
+}
+
+//inviteMoreWomen([1, -1, 1])
+//inviteMoreWomen([-1, -1, -1])
