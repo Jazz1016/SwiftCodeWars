@@ -1016,11 +1016,54 @@ func toNato(_ words: String) -> String {
 
 func inviteMoreWomen(_ arr: [Int]) -> Bool {
     let num = arr.reduce(0, { $0 + $1 })
-    
-    
-    
+
+    let number = arr.enumerated().reduce(0, {$0 + $1.element + $1.offset})
+    print(number)
     return num > 0 ? true : false
 }
 
-//inviteMoreWomen([1, -1, 1])
+//inviteMoreWomen([1, -1, 1, -1, -1, -1])
 //inviteMoreWomen([-1, -1, -1])
+
+//In this kata you need to write a function that will receive two strings (n1 and n2), each representing an integer as a binary number. A third parameter will be provided (o) as a string representing one of the following operators: add, subtract, multiply.
+//
+//Your task is to write the calculate function so that it will perform the arithmetic and the result returned should be a string representing the binary result.
+
+//enum Operator {
+//    case ADD, SUBTRACT, MULTIPLY
+//}
+//
+//func calculate(_ a:String, _ b:String, _ op:Operator) -> String {
+//
+//
+//
+//
+//    return ""
+//}
+//
+//
+//calculate("1", "1", .ADD)
+//calculate("1", "1", .MULTIPLY)
+//calculate("10", "10", .MULTIPLY)
+//calculate("100", "10", .SUBTRACT)
+
+//Write a function that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed (like the name of this kata).
+//
+//Strings passed in will consist of only letters and spaces.
+//Spaces will be included only when more than one word is present.
+
+func spinWords(in sentence: String) -> String {
+    var spunWords = sentence.components(separatedBy: " ").map({ $0.count >= 5 ? String($0.reversed()) : $0 }).reduce("", {$0 + $1 + " "})
+    spunWords.removeLast()
+    return spunWords
+}
+spinWords(in: "Hey fellow warriors")
+spinWords(in: "This is a test")
+spinWords(in: "This is another test")
+//    for (i, el) in wordArr.enumerated() {
+//        print(el)
+//        if el.count >= 5 {
+//            let reversed = String(el.reversed())
+//            wordArr[i] = reversed
+//        }
+//    }
