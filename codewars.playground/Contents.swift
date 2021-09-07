@@ -1057,9 +1057,9 @@ func spinWords(in sentence: String) -> String {
     spunWords.removeLast()
     return spunWords
 }
-spinWords(in: "Hey fellow warriors")
-spinWords(in: "This is a test")
-spinWords(in: "This is another test")
+//spinWords(in: "Hey fellow warriors")
+//spinWords(in: "This is a test")
+//spinWords(in: "This is another test")
 //    for (i, el) in wordArr.enumerated() {
 //        print(el)
 //        if el.count >= 5 {
@@ -1067,3 +1067,19 @@ spinWords(in: "This is another test")
 //            wordArr[i] = reversed
 //        }
 //    }
+
+//There is an array with some numbers. All numbers are equal except for one. Try to find it!
+//
+//findUniq([ 1, 1, 1, 2, 1, 1 ]) == 2
+//findUniq([ 0, 0, 0.55, 0, 0 ]) == 0.55
+//It’s guaranteed that array contains at least 3 numbers.
+//
+//The tests contain some very huge arrays, so think about performance.
+
+func findUniq(_ arr: [Double]) -> Double {
+    return arr.reduce(0.0, { $1 != arr[0] && $1 != arr[1] ? $0 + $1 : $0 + 0 })
+}
+
+findUniq([ 1, 1, 1, 2, 1, 1 ])
+findUniq([ 0, 0, 0.55, 0, 0 ])
+findUniq([ 3, 10, 3, 3, 3 ])
