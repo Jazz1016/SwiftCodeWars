@@ -1079,7 +1079,51 @@ func spinWords(in sentence: String) -> String {
 func findUniq(_ arr: [Double]) -> Double {
     return arr.reduce(0.0, { $1 != arr[0] && $1 != arr[1] ? $0 + $1 : $0 + 0 })
 }
+//findUniq([ 1, 1, 1, 2, 1, 1 ])
+//findUniq([ 0, 0, 0.55, 0, 0 ])
+//findUniq([ 3, 10, 3, 3, 3 ])
 
-findUniq([ 1, 1, 1, 2, 1, 1 ])
-findUniq([ 0, 0, 0.55, 0, 0 ])
-findUniq([ 3, 10, 3, 3, 3 ])
+//Given two arrays a and b write a function comp(a, b) (orcompSame(a, b)) that checks whether the two arrays have the "same" elements, with the same multiplicities. "Same" means, here, that the elements in b are the elements in a squared, regardless of the order.
+
+func comp(_ a: [Int], _ b: [Int]) -> Bool {
+
+    for i in a {
+        if b.contains(i * i) {
+            continue
+        } else {
+            return false
+        }
+    }
+
+    for i in b {
+        if a.contains(Int(sqrt(Double(i)))) {
+            continue
+        } else {
+            return false
+        }
+    }
+
+    return true
+}
+
+//func comp(_ a: [Int], _ b: [Int]) -> Bool {
+//    let sortedA = a.sorted()
+//    let sortedB = b.sorted()
+//    print(sortedA)
+//    print(sortedB)
+//    for (i, el) in sortedA.enumerated() {
+//        print(el * el, sortedB[i])
+//        if el * el != sortedB[i] {
+//            return false
+//        }
+//    }
+//    return true
+//}
+//true
+//comp([121, 144, 19, 161, 19, 144, 19, 11], [121, 14641, 20736, 361, 25921, 361, 20736, 361])
+
+//false
+//comp([4, 4], [1, 31])
+//comp([121, 144, 19, 161, 19, 144, 19, 11], [121, 14641, 20736, 361, 25921, 361, 20736, 361])
+//comp([11, 19, 121, 144, 161, 1008], [121, 361, 14641, 20736, 25921, 36100])
+//comp([1, 4, 2, 6, 5, 7, 5, 7], [1, 16, 4, 36, 25, 49, 25, 49, 50])
