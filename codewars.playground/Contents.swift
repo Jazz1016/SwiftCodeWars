@@ -1127,3 +1127,30 @@ func comp(_ a: [Int], _ b: [Int]) -> Bool {
 //comp([121, 144, 19, 161, 19, 144, 19, 11], [121, 14641, 20736, 361, 25921, 361, 20736, 361])
 //comp([11, 19, 121, 144, 161, 1008], [121, 361, 14641, 20736, 25921, 36100])
 //comp([1, 4, 2, 6, 5, 7, 5, 7], [1, 16, 4, 36, 25, 49, 25, 49, 50])
+
+
+//You are given an array(list) strarr of strings and an integer k. Your task is to return the first longest string consisting of k consecutive strings taken in the array.
+
+func longestConsec(_ strarr: [String], _ k: Int) -> String {
+    var str = ""
+    
+    for (i, _) in strarr.enumerated() {
+        if i + k > strarr.count {
+            break
+        }
+
+        var stringToCheck = ""
+        for j in 0..<k {
+            stringToCheck += strarr[i + j]
+        }
+        
+        if stringToCheck.count > str.count {
+            str = stringToCheck
+        }
+    }
+    return str
+}
+
+//longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1)
+//longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2)
+//longestConsec([], 3)
