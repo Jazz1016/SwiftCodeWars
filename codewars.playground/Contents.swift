@@ -1154,3 +1154,78 @@ func longestConsec(_ strarr: [String], _ k: Int) -> String {
 //longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1)
 //longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2)
 //longestConsec([], 3)
+
+
+//Some new cashiers started to work at your restaurant.
+//
+//They are good at taking orders, but they don't know how to capitalize words, or use a space bar!
+//
+//All the orders they create look something like this:
+//
+//"milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza"
+//
+//The kitchen staff are threatening to quit, because of how difficult it is to read the orders.
+//
+//Their preference is to get the orders as a nice clean string with spaces and capitals like so:
+//
+//"Burger Fries Chicken Pizza Pizza Pizza Sandwich Milkshake Milkshake Coke"
+//
+//The kitchen staff expect the items to be in the same order as they appear in the menu.
+
+func getOrder(_ input: String) -> String {
+    func numFunc(str: String) -> Int {
+        switch str {
+        case "Burger":
+        return 1
+        case "Fries":
+        return 2
+        case "Chicken":
+        return 3
+        case "Pizza":
+        return 4
+        case "Sandwich":
+        return 5
+        case "Onionrings":
+        return 6
+        case "Milkshake":
+        return 7
+        case "Coke":
+        return 8
+        default:
+            0
+        }
+        return 0
+    }
+    
+    var str = ""
+    var strArr: [String] = []
+    
+    for i in input {
+        str.append(i)
+        if str == "burger" || str == "fries" || str == "chicken" || str == "pizza" || str == "sandwich" || str == "onionrings" || str == "milkshake" || str == "coke" {
+            strArr.append(str.capitalized)
+            str = ""
+        }
+    }
+    return strArr.sorted {numFunc(str: $0) < numFunc(str: $1)}.joined(separator: " ")
+}
+
+getOrder("milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza")
+getOrder("pizzachickenfriesburgercokemilkshakefriessandwich")
+
+//Jamie is a programmer, and James' girlfriend. She likes diamonds, and wants a diamond string from James. Since James doesn't know how to make this happen, he needs your help.
+//
+//Task
+//You need to return a string that looks like a diamond shape when printed on the screen, using asterisk (*) characters. Trailing spaces should be removed, and every line must be terminated with a newline character (\n).
+//
+//Return null/nil/None/... if the input is an even number or negative, as it is not possible to print a diamond of even or negative size.
+
+func diamond(_ size: Int) -> String? {
+    guard size > 0 else { return nil }
+    guard size % 2 == 1 else { return nil }
+    let upperHalf = (0..<(size / 2 + 1))
+        .map { String(repeating: " ", count: size / 2 - $0) + String(repeating: "*", count: 2 * $0 + 1) + "\n" }
+    let lowerHalf = (0..<(size / 2)).reversed()
+        .map { String(repeating: " ", count: size / 2 - $0) + String(repeating: "*", count: 2 * $0 + 1) + "\n" }
+    return (upperHalf + lowerHalf).reduce("", +)
+}
