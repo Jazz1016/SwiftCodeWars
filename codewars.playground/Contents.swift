@@ -1220,12 +1220,93 @@ getOrder("pizzachickenfriesburgercokemilkshakefriessandwich")
 //
 //Return null/nil/None/... if the input is an even number or negative, as it is not possible to print a diamond of even or negative size.
 
-func diamond(_ size: Int) -> String? {
-    guard size > 0 else { return nil }
-    guard size % 2 == 1 else { return nil }
-    let upperHalf = (0..<(size / 2 + 1))
-        .map { String(repeating: " ", count: size / 2 - $0) + String(repeating: "*", count: 2 * $0 + 1) + "\n" }
-    let lowerHalf = (0..<(size / 2)).reversed()
-        .map { String(repeating: " ", count: size / 2 - $0) + String(repeating: "*", count: 2 * $0 + 1) + "\n" }
-    return (upperHalf + lowerHalf).reduce("", +)
+//func diamond(_ size: Int) -> String? {
+//    guard size > 0 else { return nil }
+//    guard size % 2 == 1 else { return nil }
+//    let upperHalf = (0..<(size / 2 + 1))
+//        .map { String(repeating: " ", count: size / 2 - $0) + String(repeating: "*", count: 2 * $0 + 1) + "\n" }
+//    let lowerHalf = (0..<(size / 2)).reversed()
+//        .map { String(repeating: " ", count: size / 2 - $0) + String(repeating: "*", count: 2 * $0 + 1) + "\n" }
+//    return (upperHalf + lowerHalf).reduce("", +)
+//}
+
+
+
+
+
+func secondLargestSmallest(arr1: [Int], arr2: [Int]) -> [Int] {
+    let newArr = [arr1, arr2].flatMap { el in
+        return el
+    }
+    let set = Array(Set(newArr)).sorted()
+    return [set[set.count - 2], set[1]]
 }
+
+//secondLargestSmallest(arr1: [10,5,7,2,4,1,24], arr2: [8,23,29,25,40,0,24,40,40])
+
+func getElementsCharacters(str: String) -> [[String: Int]] {
+    var array: [[String: Int]] = []
+    var arr2: [Character] = []
+    for (i, el) in str.enumerated() {
+        if i % 2 != 0 && !arr2.contains(el) {
+            arr2.append(el)
+            var count = 0
+            for j in str {
+                if j == el {
+                    count += 1
+                }
+            }
+            array.append([String(el) : count])
+        }
+    }
+    
+    
+    
+    return array
+}
+
+//getElementsCharacters(str: "abbloseckc")
+
+func findIndex(arr: [Int], num: Int) -> Int {
+    if arr.contains(num) {
+        return arr.firstIndex(of: num)!
+    } else {
+        var newArr: [Int] = arr
+        newArr.append(num)
+        newArr = newArr.sorted()
+        return newArr.firstIndex(of: num)!
+    }
+}
+
+//findIndex(arr: [1, 2, 4, 5, 6], num: 5) //3
+//findIndex(arr: [1, 2, 4, 5, 6], num: 0) //0
+//findIndex(arr: [1, 2, 4, 5, 6], num: 7) //5
+
+//[1, 2, 4, 5, 6] (target) -> 5(index)
+
+//func twoSum(numbers: [Double], target: Double) -> [Int] {
+//
+//
+//    return [1]
+//}
+
+//twoSum([1, 54, 24, 35], 59)
+
+func persistence(for num: Int) -> Int {
+    var number = num
+    
+    var count = 0
+    
+    while number > 9 {
+        count += 1
+        var numHolder = 1
+        for i in "\(number)" {
+            numHolder *= Int(String(i)) ?? 0
+        }
+        number = numHolder
+    }
+    
+    return count
+}
+
+persistence(for: 39)
