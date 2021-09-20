@@ -1309,4 +1309,22 @@ func persistence(for num: Int) -> Int {
     return count
 }
 
-persistence(for: 39)
+//persistence(for: 39)
+
+//You are given an input string.
+//
+//For each symbol in the string if it's the first character occurrence, replace it with a '1', else replace it with the amount of times you've already seen it.
+
+func numericals(_ str: String) -> String {
+    var dict = [String : Int]()
+    
+    for i in str {
+//        if dict.i != nil {
+//
+//        }
+    }
+    
+    return ""
+}
+
+numericals("Hello, World!")
