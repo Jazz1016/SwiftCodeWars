@@ -1331,6 +1331,34 @@ numericals("Hello, World!")
 
 
 
-func greet(_ name: String) -> String {
-    return "Hello, \(name) how are you doing today?"
-}
+//func greet(_ name: String) -> String {
+//    return "Hello, \(name) how are you doing today?"
+//}
+//
+//protocol Foo {
+//    var moo: String { get }
+//}
+//
+//extension Foo {
+//    var moo: String {
+//        return "Moo"
+//    }
+//    func test(){
+//        print("Foo \(moo)")
+//    }
+//}
+//
+//class Bar: Foo {
+//    var moo: String {
+//        return "Mooo"
+//    }
+//    func test() {
+//        print("Bar \(moo)")
+//    }
+//}
+//
+//let b: Foo = Bar()
+//b.test()
+
+//let b = zip([1,2,3,4,5,6,7,8], ["a","b","c"])
+//print(b)
