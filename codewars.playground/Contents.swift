@@ -1327,7 +1327,7 @@ func numericals(_ str: String) -> String {
     return ""
 }
 
-numericals("Hello, World!")
+//numericals("Hello, World!")
 
 
 
@@ -1362,3 +1362,52 @@ numericals("Hello, World!")
 
 //let b = zip([1,2,3,4,5,6,7,8], ["a","b","c"])
 //print(b)
+
+
+//func subtractSum(_ n: Int) -> String {
+//    var num = 0
+//    for i in "\(n)" {
+//        print(Int(String(i)))
+//        num = num + Int(String(i))!
+//    }
+//    return "\(n - num)"
+//}
+//
+//subtractSum(325)
+
+
+func switchItUp(_ number: Int) -> String {
+            if number == 0 {
+                return "Zero"
+            }
+            else if number == 1 {
+                return "One"
+            }
+            else if number == 2 {
+                return "Two"
+            }
+            else if number == 3 {
+                return "Three"
+            }
+            else if number == 4 {
+                return "Four"
+            }
+            else if number == 5 {
+                return "Five"
+            }
+            else if number == 6 {
+                return "Six"
+            }
+            else if number == 7 {
+                return "Seven"
+            }
+            else if number == 8 {
+                return "Eight"
+            }
+            else {
+                return "Nine"
+            }
+}
+
+switchItUp(1)
+    
