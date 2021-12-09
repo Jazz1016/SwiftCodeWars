@@ -1443,6 +1443,7 @@ func century(_ year: Int) -> Int {
     }
 }
 
-century(89)
-century(1900)
-century(1705)
+//century(89)
+//century(1900)
+//century(1705)
+//century(1706)
