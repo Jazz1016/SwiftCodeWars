@@ -1433,14 +1433,14 @@ switchItUp(1)
 //1601 --> 17
 //2000 --> 20
 
-func century(_ year: Int) -> Int {
-    var num = year/100
-    
-    if year % 100 == 0 {
-        return num
-    } else {
-        return num + 1
-    }
+//func century(_ year: Int) -> Int {
+//    var num = year/100
+//
+//    if year % 100 == 0 {
+//        return num
+//    } else {
+//        return num + 1
+//    }
 }
 
 //century(89)
