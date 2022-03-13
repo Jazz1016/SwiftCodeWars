@@ -1441,9 +1441,27 @@ switchItUp(1)
 //    } else {
 //        return num + 1
 //    }
-}
+//}
 
 //century(89)
 //century(1900)
 //century(1705)
 //century(1706)
+
+//Given a month as an integer from 1 to 12, return to which quarter of the year it belongs as an integer number.
+//
+//For example: month 2 (February), is part of the first quarter; month 6 (June), is part of the second quarter; and month 11 (November), is part of the fourth quarter.
+
+func quarter(of month: Int) -> Int {
+    if month <= 3 {
+        return 1
+    } else if month <= 6 {
+        return 2
+    } else if month <= 9 {
+        return 3
+    } else {
+        return 4
+    }
+}
+
+//print(quarter(of: 9))
