@@ -1473,15 +1473,41 @@ func quarter(of month: Int) -> Int {
 //The rest of your team will make sure that the argument is sanitized before being passed to your function although you will need to account for adding trailing zeros if they are missing (though you won't have to worry about a dangling period).
 
 func formatMoney(_ val:Double) -> String {
-    if "$\(val)".count == 4 {
-        return "$\(val)0"
-    } else if "$\(val)".count > 4 {
-        return String("$\(val)".prefix(5))
+    var decimalSeen = false
+    var decimalSeenCount = 0
+    var decimalSeenNumbers = ""
+    var newNum = ""
+    
+    for el in "\(val)" {
+        if decimalSeen && decimalSeenCount < 3 {
+            decimalSeenCount += 1
+            if decimalSeenCount == 3 {
+                decimalSeenNumbers += String(".")
+            }
+            decimalSeenNumbers += String(el)
+            
+        } else if decimalSeen == false {
+            newNum += String(el)
+        }
+        if el == "." {
+            decimalSeen = true
+        }
     }
-    return "$\(val)"
+    if decimalSeenCount > 2 {
+        decimalSeenNumbers = "\(ceil(Double(decimalSeenNumbers)!))"
+        decimalSeenNumbers.removeLast()
+        decimalSeenNumbers.removeLast()
+    }
+    if decimalSeenCount == 1 {
+        return "$\(newNum)\(decimalSeenNumbers)0"
+    }
+    if decimalSeenCount > 2 {
+        print(newNum.last!)
+    }
+    return "$\(newNum)\(decimalSeenNumbers)"
 }
 
 formatMoney(3)
 formatMoney(3.1)
 formatMoney(30.1)
-formatMoney(3.1456)
+formatMoney(3.1431241234)
