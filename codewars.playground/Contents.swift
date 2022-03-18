@@ -1579,3 +1579,22 @@ func jumpingNumber(_ number: Int) -> String {
 //jumpingNumber(23)
 //jumpingNumber(4345)
 //jumpingNumber(92)
+
+//You will be given an array a and a value x. All you need to do is check whether the provided array contains the value.
+//
+//The type of a and x can be String or Int.
+//
+//Return true if the array contains the value, false if not.
+
+func check<T: Equatable>(_ a: [T], _ x: T) -> Bool {
+    for i in a {
+        if i == x {
+            return true
+        }
+    }
+    return false
+}
+
+check(["t", "e", "s", "t"], "e") //true
+check(["what", "a", "great", "kata"], "kat") //false
+check([80, 117, 115, 104, 45, 85, 112, 115], 45) //true
