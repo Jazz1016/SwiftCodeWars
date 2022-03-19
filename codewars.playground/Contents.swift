@@ -1595,6 +1595,30 @@ func check<T: Equatable>(_ a: [T], _ x: T) -> Bool {
     return false
 }
 
-check(["t", "e", "s", "t"], "e") //true
-check(["what", "a", "great", "kata"], "kat") //false
-check([80, 117, 115, 104, 45, 85, 112, 115], 45) //true
+//check(["t", "e", "s", "t"], "e") //true
+//check(["what", "a", "great", "kata"], "kat") //false
+//check([80, 117, 115, 104, 45, 85, 112, 115], 45) //true
+
+//Create a function that takes 2 integers in form of a string as an input, and outputs the sum (also as a string):
+//
+//Example: (Input1, Input2 -->Output)
+//
+//"4",  "5" --> "9"
+//"34", "5" --> "39"
+//"", "" --> "0"
+//"2", "" --> "2"
+//"-5", "3" --> "-2"
+//Notes:
+//
+//If either input is an empty string, consider it as zero.
+//
+//Inputs and the expected output will never exceed the signed 32-bit integer limit (2^31 - 1)
+
+func sum_str(_ a:String, _ b:String) -> String {
+    let aNum: Int = Int(a) ?? 0
+    let bNum: Int = Int(b) ?? 0
+    return "\(aNum + bNum)"
+}
+
+sum_str("4","5")
+sum_str("34","5")
