@@ -1613,12 +1613,12 @@ func check<T: Equatable>(_ a: [T], _ x: T) -> Bool {
 //If either input is an empty string, consider it as zero.
 //
 //Inputs and the expected output will never exceed the signed 32-bit integer limit (2^31 - 1)
+//
+//func sum_str(_ a:String, _ b:String) -> String {
+//    let aNum: Int = Int(a) ?? 0
+//    let bNum: Int = Int(b) ?? 0
+//    return "\(aNum + bNum)"
+//}
 
-func sum_str(_ a:String, _ b:String) -> String {
-    let aNum: Int = Int(a) ?? 0
-    let bNum: Int = Int(b) ?? 0
-    return "\(aNum + bNum)"
-}
-
-sum_str("4","5")
-sum_str("34","5")
+//sum_str("4","5")
+//sum_str("34","5")
