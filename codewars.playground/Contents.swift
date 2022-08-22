@@ -364,11 +364,11 @@ import UIKit
 //    return sortedArr[0] + sortedArr[1]
 //}
 
-func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
-    let sortedArr = array.sorted()
-    
-    return sortedArr[0] + sortedArr[1]
-}
+//func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
+//    let sortedArr = array.sorted()
+//
+//    return sortedArr[0] + sortedArr[1]
+//}
 //sumOfTwoSmallestIntegersIn([5, 8, 12, 18, 22])
 
 //Each day a plant is growing by upSpeed meters. Each night that plant's height decreases by downSpeed meters due to the lack of sun heat. Initially, plant is 0 meters tall. We plant the seed at the beginning of a day. We want to know when the height of the plant will reach a certain level.
@@ -1627,13 +1627,23 @@ func check<T: Equatable>(_ a: [T], _ x: T) -> Bool {
 //
 //Example : n=5 --> [5,4,3,2,1]
 
-func reverseSeq(n: Int) -> [Int] {
-    var arr: [Int] = []
-    for i in 1...n {
-        arr.append(i)
-    }
-    return arr.reversed()
-} 
+//func reverseSeq(n: Int) -> [Int] {
+//    var arr: [Int] = []
+//    for i in stride(from: n, to: 1, by: -1) {
+//        arr.append(i)
+//    }
+//    return arr
+//}
+//
+//reverseSeq(n: 6)
+//reverseSeq(n: 3)
 
-reverseSeq(n: 6)
-reverseSeq(n: 3)
+//for index in stride(from: 10, to: 1, by: -1) {
+//    print(index)
+//}
+
+
+func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
+  let arr = array.sorted()
+  return arr[0] + arr[1]
+}
