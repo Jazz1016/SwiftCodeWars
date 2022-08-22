@@ -1622,3 +1622,18 @@ func check<T: Equatable>(_ a: [T], _ x: T) -> Bool {
 
 //sum_str("4","5")
 //sum_str("34","5")
+
+//Build a function that returns an array of integers from n to 1 where n>0.
+//
+//Example : n=5 --> [5,4,3,2,1]
+
+func reverseSeq(n: Int) -> [Int] {
+    var arr: [Int] = []
+    for i in 1...n {
+        arr.append(i)
+    }
+    return arr.reversed()
+} 
+
+reverseSeq(n: 6)
+reverseSeq(n: 3)
