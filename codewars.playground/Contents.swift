@@ -684,22 +684,22 @@ func boolToWord(_ bool: Bool) -> String {
 //
 //    return 0
 //}
-
-func rowSumOddNumbers(_ row: Int) -> Int {
-    var currentNumber = 1
-    var sum = 0
-    for r in 1...row {
-//        print(row, r)
-        for _ in 1...r {
-            if r == row {
-                sum += currentNumber
-            }
-//            print(currentNumber)
-            currentNumber += 2
-        }
-    }
-    return sum
-}
+//
+//func rowSumOddNumbers(_ row: Int) -> Int {
+//    var currentNumber = 1
+//    var sum = 0
+//    for r in 1...row {
+////        print(row, r)
+//        for _ in 1...r {
+//            if r == row {
+//                sum += currentNumber
+//            }
+////            print(currentNumber)
+//            currentNumber += 2
+//        }
+//    }
+//    return sum
+//}
 
 //rowSumOddNumbers(2)
 //rowSumOddNumbers(3)
@@ -1646,4 +1646,21 @@ func check<T: Equatable>(_ a: [T], _ x: T) -> Bool {
 func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
   let arr = array.sorted()
   return arr[0] + arr[1]
+}
+
+//Given the triangle of consecutive odd numbers:
+//
+//             1
+//          3     5
+//       7     9    11
+//   13    15    17    19
+//21    23    25    27    29
+//...
+//Calculate the sum of the numbers in the nth row of this triangle (starting at index 1) e.g.: (Input --> Output)
+//
+//1 -->  1
+//2 --> 3 + 5 = 8
+
+func rowSumOddNumbers(_ row: Int) -> Int {
+  return row * row * row
 }
