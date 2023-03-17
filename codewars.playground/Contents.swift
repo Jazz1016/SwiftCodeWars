@@ -1664,8 +1664,8 @@ func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
 func rowSumOddNumbers(_ row: Int) -> Int {
   return row * row * row
 }
-
-func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
-  let arr = array.sorted()
-  return arr[0] + arr[1]
-}
+//
+//func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
+//  let arr = array.sorted()
+//  return arr[0] + arr[1]
+//}
