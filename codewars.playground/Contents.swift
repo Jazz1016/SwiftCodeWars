@@ -1669,3 +1669,11 @@ func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
   let arr = array.sorted()
   return arr[0] + arr[1]
 }
+
+func grow(_ arr: [Int]) -> Int {
+  var num = 1
+  for val in arr {
+    num = num * val
+  }
+  return num
+}
