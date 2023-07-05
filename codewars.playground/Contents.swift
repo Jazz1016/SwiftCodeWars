@@ -1661,22 +1661,22 @@ func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
 //1 -->  1
 //2 --> 3 + 5 = 8
 
-func rowSumOddNumbers(_ row: Int) -> Int {
-  return row * row * row
-}
-
-func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
-  let arr = array.sorted()
-  return arr[0] + arr[1]
-}
-
-func grow(_ arr: [Int]) -> Int {
-  var num = 1
-  for val in arr {
-    num = num * val
-  }
-  return num
-}
+//func rowSumOddNumbers(_ row: Int) -> Int {
+//  return row * row * row
+//}
+//
+//func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
+//  let arr = array.sorted()
+//  return arr[0] + arr[1]
+//}
+//
+//func grow(_ arr: [Int]) -> Int {
+//  var num = 1
+//  for val in arr {
+//    num = num * val
+//  }
+//  return num
+//}
 
 //Make a simple function called greet that returns the most-famous "hello world!".
 //
@@ -1686,3 +1686,29 @@ func grow(_ arr: [Int]) -> Int {
 func greet() -> String {
   return "hello world!"
 }
+
+//In this kata you should simply determine, whether a given year is a leap year or not. In case you don't know the rules, here they are:
+//
+//years divisible by 4 are leap years
+//but years divisible by 100 are not leap years
+//but years divisible by 400 are leap years
+//Additional Notes:
+//
+//Only valid years (positive integers) will be tested, so you don't have to validate them
+
+func isLeapYear(_ year: Int) -> Bool {
+    if year % 400 == 0 {
+        return true
+    } else if year % 100 == 0 {
+        return false
+    } else if year % 4 == 0 {
+        return true
+    } else {
+        return false
+    }
+}
+
+print(isLeapYear(100))
+print(isLeapYear(400))
+print(isLeapYear(1800))
+print(isLeapYear(1900))
