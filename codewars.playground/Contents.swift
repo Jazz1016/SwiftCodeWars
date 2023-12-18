@@ -1708,10 +1708,7 @@ func isLeapYear(_ year: Int) -> Bool {
     }
 }
 
-print(isLeapYear(100))
-print(isLeapYear(400))
-print(isLeapYear(1800))
-print(isLeapYear(1900))
+
 //
 //If you've completed this kata already and want a bigger challenge, here's the 3D version
 //
@@ -1742,3 +1739,52 @@ func flip(_ direction: String, _ a: [Int]) -> [Int] {
   }
   return []
 }
+
+//You have to search all numbers from inclusive 1 to inclusive a given number x, that have the given digit d in it.
+//The value of d will always be 0 - 9.
+//The value of x will always be greater than 0.
+//
+//You have to return as an array
+//
+//the count of these numbers,
+//their sum
+//and their product.
+//
+//For example:
+//x = 11
+//d = 1
+//->
+//Numbers: 1, 10, 11
+//Return: [3, 22, 110]
+//
+//If there are no numbers, which include the digit, return [0,0,0].
+//
+//Have fun coding it and please don't forget to vote and rank this kata! :-)
+//
+//I have created other katas. Have a look if you like coding and challenges.
+
+
+func numbersWithDigitInside(_ x: Int64, _ d: Int64) -> [Int64] {
+  var arr: [Int64] = []
+  
+  if d > x {
+    return [0, 0, 0]
+  }
+  
+  for i in d...x {
+      if i == 0 {
+          continue
+      }
+    let strToSplit = "\(i)"
+    for char in strToSplit {
+      if let digit = Int(String(char)), digit == d {
+        arr.append(i)
+        break
+      }
+    }
+  }
+  let sum = arr.reduce(0, {$0 + $1})
+    let product = arr.isEmpty ? 0 : arr.reduce(1) { $0 * $1 }
+  return [Int64(arr.count), sum, product]
+}
+
