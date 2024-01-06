@@ -1910,4 +1910,73 @@ func overTheRoad(address: Int, street: Int) -> Int {
   return num;
 }
 
-overTheRoad(address: 4, street: 3)
+//overTheRoad(address: 4, street: 3)
+
+//A new task for you!
+//
+//You have to create a method, that corrects a given time string.
+//There was a problem in addition, so many of the time strings are broken.
+//Time is formatted using the 24-hour clock, so from 00:00:00 to 23:59:59.
+//Examples
+//"09:10:01" -> "09:10:01"
+//"11:70:10" -> "12:10:10"
+//"19:99:99" -> "20:40:39"
+//"24:01:01" -> "00:01:01"
+//If the input-string is null or empty return exactly this value! (empty string for C++) If the time-string-format is invalid, return null. (empty string for C++)
+//
+//Have fun coding it and please don't forget to vote and rank this kata! :-)
+//
+//I have created other katas. Have a look if you like coding and challenges.
+
+func correct(_ timeString: String?) -> String? {
+    guard let timeStr = timeString else { return nil }
+    
+    var arr = timeStr.split(separator: ":")
+    var intArr: [Int] = []
+  
+    for i in 0...arr.count - 1 {
+        let intToAdd = Int(arr[i])
+        intArr.append(intToAdd!)
+    }
+    
+    var firstDigit = intArr[0]
+    var secondDigit = intArr[1]
+    var thirdDigit = intArr[2]
+    
+    var firstCounter = 0
+    var secondCounter = 0
+    var thirdCounter = 0
+    
+    while thirdDigit >= 60 {
+        thirdDigit -= 60
+        thirdCounter += 1
+    }
+    
+    secondDigit += thirdCounter
+    
+    while secondDigit >= 60 {
+        secondDigit -= 60
+        secondCounter += 1
+    }
+    
+    firstDigit += secondCounter
+    
+    while firstDigit >= 24 {
+        firstDigit -= 24
+    }
+    
+    let firstString = firstDigit < 10 ? "\(firstDigit)0" : "\(firstDigit)"
+    let secondString = secondDigit < 10 ? "\(secondDigit)0" : "\(secondDigit)"
+    let thirdString = thirdDigit < 10 ? "\(thirdDigit)0" : "\(thirdDigit)"
+        
+  return "\(firstString):\(secondString):\(thirdString)"
+}
+
+correct("19:99:99") ///-> "09:10:01"
+correct("11:70:10") ///-> "12:10:10"
+correct("19:99:99") ///-> "20:40:39"
+correct("24:01:01") ///->"00:01:01"
+
+//"11:70:10"
+//"19:99:99" ->
+//"24:01:01" ->
