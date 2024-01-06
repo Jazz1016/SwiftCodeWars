@@ -645,10 +645,10 @@ spacify("hello world")
 //    return addOne(num: )
 //}
 
-func add(_ n: Int) -> ((Int) -> Int) {
-    func a(_ b: Int) -> Int { return n + b }
-    return a(_:)
-}
+//func add(_ n: Int) -> ((Int) -> Int) {
+//    func a(_ b: Int) -> Int { return n + b }
+//    return a(_:)
+//}
 
 //add(5)(10)
 
@@ -1972,11 +1972,24 @@ func correct(_ timeString: String?) -> String? {
   return "\(firstString):\(secondString):\(thirdString)"
 }
 
-correct("19:99:99") ///-> "09:10:01"
-correct("11:70:10") ///-> "12:10:10"
-correct("19:99:99") ///-> "20:40:39"
-correct("24:01:01") ///->"00:01:01"
+//correct("19:99:99") ///-> "09:10:01"
+//correct("11:70:10") ///-> "12:10:10"
+//correct("19:99:99") ///-> "20:40:39"
+//correct("24:01:01") ///->"00:01:01"
 
-//"11:70:10"
-//"19:99:99" ->
-//"24:01:01" ->
+//Create a function add(n)/Add(n) which returns a function that always adds n to any number
+//
+//Note for Java: the return type and methods have not been provided to make it a bit more challenging.
+//
+//addOne = add(1)
+//addOne(3) // 4
+
+func add(_ n: Int) -> ((Int) -> Int) {
+    func fxToReturn(num: Int) -> Int {
+        return n + num
+    }
+    
+    return fxToReturn(num: )
+}
+
+add(4)(2)
