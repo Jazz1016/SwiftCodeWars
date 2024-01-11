@@ -2062,8 +2062,10 @@ func filterAddresses(scanStr: String) -> [String] {
     let testString = "123 Main Street, City, State, 12345"
 
     // Regular expression pattern for a simple address format
-    let pattern = #"\b\d+\s+[A-Za-z0-9\s,]+,\s+[A-Za-z\s]+,\s+[A-Z]{2}\s+\d{5}\b"#
-    let regex = try! NSRegularExpression(pattern: pattern, options: [])
+    let addressPattern = #"\b\d+\s+[A-Za-z0-9\s,]+,\s+[A-Za-z\s]+,\s+[A-Z]{2}\s+\d{5}\b"#
+    let zipCodePattern = #"\b92106\b"#
+    
+    let regex = try! NSRegularExpression(pattern: addressPattern, options: [])
 
     let range = NSRange(scanStr.startIndex..<scanStr.endIndex, in: scanStr)
     if let match = regex.firstMatch(in: scanStr, options: [], range: range) {
@@ -2076,4 +2078,26 @@ func filterAddresses(scanStr: String) -> [String] {
     return [""]
 }
 
-filterAddresses(scanStr: got)
+//filterAddresses(scanStr: got)
+
+func extractAddresses(from inputString: String, zipCode: String) -> [String] {
+    let addressPattern = #"\b(\d+\s+[A-Za-z0-9\s,]+,\s+[A-Za-z\s]+,\s+CA\s+\#(zipCode))\b"#
+
+    do {
+        let regex = try NSRegularExpression(pattern: addressPattern, options: [])
+        let matches = regex.matches(in: inputString, options: [], range: NSRange(location: 0, length: inputString.utf16.count))
+
+        let addresses = matches.map { match in
+            let range = match.range(at: 1) // Use the capture group (1) for the entire address
+            return (inputString as NSString).substring(with: range)
+        }
+
+        return addresses
+    } catch {
+        print("Error creating regex: \(error)")
+        return []
+    }
+}
+
+
+extractAddresses(from: got, zipCode: "92106")
