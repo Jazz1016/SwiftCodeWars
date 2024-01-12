@@ -2081,14 +2081,14 @@ func filterAddresses(scanStr: String) -> [String] {
 //filterAddresses(scanStr: got)
 
 func extractAddresses(from inputString: String, zipCode: String) -> [String] {
-    let addressPattern = #"\b(\d+\s+[A-Za-z0-9\s,]+,\s+[A-Za-z\s]+,\s+CA\s+\#(zipCode))\b"#
+    let addressPattern = #"\b\d+\s+[A-Za-z0-9\s,]+,\s+[A-Za-z\s]+,\s+CA\s+\#(zipCode)\b|\b\d{5}\s+[A-Za-z0-9\s,]+,\s+[A-Za-z\s]+,\s+CA\b"#
 
     do {
         let regex = try NSRegularExpression(pattern: addressPattern, options: [])
         let matches = regex.matches(in: inputString, options: [], range: NSRange(location: 0, length: inputString.utf16.count))
 
         let addresses = matches.map { match in
-            let range = match.range(at: 1) // Use the capture group (1) for the entire address
+            let range = match.range
             return (inputString as NSString).substring(with: range)
         }
 
@@ -2099,5 +2099,4 @@ func extractAddresses(from inputString: String, zipCode: String) -> [String] {
     }
 }
 
-
-extractAddresses(from: got, zipCode: "92106")
+print(extractAddresses(from: got, zipCode: "92106"))
