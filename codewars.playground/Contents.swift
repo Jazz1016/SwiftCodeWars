@@ -2081,7 +2081,7 @@ func filterAddresses(scanStr: String) -> [String] {
 //filterAddresses(scanStr: got)
 
 func extractAddresses(from inputString: String, zipCode: String) -> [String] {
-    let addressPattern = #"\b\d+\s+[A-Za-z0-9\s,]+,\s+[A-Za-z\s]+,\s+CA\s+\#(zipCode)\b|\b\d{5}\s+[A-Za-z0-9\s,]+,\s+[A-Za-z\s]+,\s+CA\b"#
+    let addressPattern = #"\b\d+\s+[A-Za-z0-9\s,]+,\s+[A-Za-z\s]+,\s+CA\s+\#(zipCode)\b|\b\d+\s+[A-Za-z0-9\s,]+,\s+[A-Za-z\s]+,\s+CA\b"#
 
     do {
         let regex = try NSRegularExpression(pattern: addressPattern, options: [])
@@ -2099,4 +2099,70 @@ func extractAddresses(from inputString: String, zipCode: String) -> [String] {
     }
 }
 
-print(extractAddresses(from: got, zipCode: "92106"))
+//print(extractAddresses(from: got, zipCode: "92106"))
+//print(extractAddresses(from: freshTestString, zipCode: "92106"))
+
+//func addSpaceAfterZipCode(zipCode: String, in inputString: String) -> String {
+//    // Use replacingOccurrences to replace zip code instances with zip code + space
+//    let modifiedString = inputString.replacingOccurrences(of: zipCode, with: "\(zipCode) ")
+//    return modifiedString
+//}
+//
+//// Example usage
+//let zipCode = "92106"
+//let inputString = "Some text 92106Some other text9210692106Yet another text"
+//
+//let result = addSpaceAfterZipCode(zipCode: zipCode, in: inputString)
+//print(result)
+//
+
+func addSpaceAfterZipCodeIfNeeded(zipCode: String, in inputString: String) -> String {
+    let modifiedString = inputString.replacingOccurrences(of: "\(zipCode) ", with: zipCode)
+                                    .replacingOccurrences(of: zipCode, with: "\(zipCode) ")
+    return modifiedString
+}
+
+print(addSpaceAfterZipCodeIfNeeded(zipCode: "92106", in: got))
+
+// Example usage
+let zipCode = "92106"
+let inputString = "Some text 92106Some other text9210692106Yet 92106 another text"
+
+let result = addSpaceAfterZipCodeIfNeeded(zipCode: zipCode, in: inputString)
+let test1 = addSpaceAfterZipCodeIfNeeded(zipCode: zipCode, in: got)
+
+func splitAddresses(from inputString: String) -> [String] {
+    let separator = "92106"
+    var addresses: [String] = []
+
+    let components = inputString.components(separatedBy: separator)
+
+    for (index, component) in components.enumerated() {
+        if index > 0 {
+            let address = "\(separator) \(component.trimmingCharacters(in: .whitespacesAndNewlines))"
+            addresses.append(address)
+        }
+    }
+
+    return addresses
+}
+
+//print(splitAddresses(from: test1))
+func splitAddressesWithRegex(from inputString: String) -> [String] {
+    let addressPattern = #"(\d+\s+[A-Za-z0-9\s,]+,\s+[A-Za-z\s]+,\s+CA\s+\d+)"#
+    
+    do {
+        let regex = try NSRegularExpression(pattern: addressPattern, options: [])
+        let matches = regex.matches(in: inputString, options: [], range: NSRange(location: 0, length: inputString.utf16.count))
+
+        let addresses = matches.map {
+            (inputString as NSString).substring(with: $0.range)
+        }
+
+        return addresses
+    } catch {
+        print("Error creating regex: \(error)")
+        return []
+    }
+}
+splitAddressesWithRegex(from: test1)
